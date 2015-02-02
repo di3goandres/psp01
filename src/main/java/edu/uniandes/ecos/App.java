@@ -14,7 +14,8 @@ import java.sql.*;
  *
  */
 public class App extends HttpServlet {
-      @Override
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
@@ -28,7 +29,16 @@ public class App extends HttpServlet {
     private void showHome(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         resp.getWriter().println("Hello from Java!");
-      
+        try {
+            ClassLOCCounter counter = new ClassLOCCounter("resource/", true, true);
+            counter.process();
+            resp.getWriter().println("No. of files : " + counter.getFileList().size());
+            resp.getWriter().println("Total no. of lines : " + counter.getLoc());
+            resp.getWriter().println("Empty Lines   : " + counter.getEmptyLines());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void showDatabase(HttpServletRequest req, HttpServletResponse resp)
@@ -71,6 +81,7 @@ public class App extends HttpServlet {
 
         return DriverManager.getConnection(dbUrl, username, password);
     }
+
     public static void main(String[] args) throws Exception {
         Server server = new Server(Integer.valueOf(System.getenv("PORT"))); //new Server(80);//
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
