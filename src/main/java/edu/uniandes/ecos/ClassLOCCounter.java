@@ -46,7 +46,7 @@ public class ClassLOCCounter {
         }
 
         public void process() throws Exception {
-                System.out.println("Calculating loc count...");
+                //System.out.println("Calculating loc count...");
                 Iterator it = fileList.iterator();
                 while(it.hasNext()) {
                         File file = (File)it.next();
@@ -73,7 +73,7 @@ public class ClassLOCCounter {
                                 }
                         }
                 }
-                System.out.println("Done.");
+               // System.out.println("Done.");
         }
 
         public static List getFileListRecursive(File file, List fileList) {
