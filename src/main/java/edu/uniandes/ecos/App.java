@@ -38,7 +38,7 @@ public class App extends HttpServlet {
     }
 
     public static void main(String[] args) throws Exception {
-        Server server = Integer.valueOf(System.getenv("PORT"))); //new Server(80);//
+        Server server = new Server(Integer.valueOf(System.getenv("PORT"))); //new Server(80);//
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
