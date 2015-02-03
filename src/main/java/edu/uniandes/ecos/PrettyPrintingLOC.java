@@ -17,8 +17,10 @@ public class PrettyPrintingLOC {
                         ClassLOCCounter counter = new ClassLOCCounter("resource/", true, true);
                         counter.process();
                         System.out.println("No. of files : " + counter.getFileList().size());
-                        System.out.println("Total no. of lines : " + counter.getLoc());
+                        System.out.println("Total no. of lines logic : " + counter.getLoc());
                         System.out.println("Empty Lines   : " + counter.getEmptyLines());
+                        System.out.println("Comment Lines   : " + counter.getCommentLines());
+                         System.out.println("Total Methods    : " + counter.getTotalMethods());
                 } catch (Exception e) {
                         e.printStackTrace();
                 }

@@ -35,6 +35,8 @@ public class App extends HttpServlet {
             resp.getWriter().println("No. of files : " + counter.getFileList().size());
             resp.getWriter().println("Total no. of lines : " + counter.getLoc());
             resp.getWriter().println("Empty Lines   : " + counter.getEmptyLines());
+            resp.getWriter().println("Comment Lines   : " + counter.getCommentLines());
+            resp.getWriter().println("Total Methods    : " + counter.getTotalMethods());
         } catch (Exception e) {
             e.printStackTrace();
         }
