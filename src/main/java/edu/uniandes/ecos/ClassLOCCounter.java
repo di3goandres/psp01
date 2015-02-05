@@ -76,10 +76,16 @@ public class ClassLOCCounter {
                     this.empty++;
                     continue;
                 } else {
-                      ++this.loc;
+                    //se cuenta las lineas que esta contando
+                    ++this.loc;
                     if (line.startsWith("//") || line.startsWith("*") || line.startsWith("/*") || line.startsWith("*/")) //comment 
                     {
+                        /*
+                        * cuenta si es un comentario y resta uno por que 
+                        * los comentarios no son lineas de codigo en el estandar definido
+                        */
                         ++this.comment;
+                        --this.loc;
                     } else if (line.contains("(") && line.contains(")") && !line.contains(";")) {
                         String[] wordsArray = new String[6];
                         wordsArray[0] = "for";
@@ -91,7 +97,6 @@ public class ClassLOCCounter {
                         if (!ContainsSingleWord(line, wordsArray)) {
                             this.methods++;
                         }
-                      
 
                     }
 
@@ -139,6 +144,7 @@ public class ClassLOCCounter {
         }
         return messages;
     }
+
     private boolean ContainsSingleWord(String source, String[] words) {
         for (String word : words) {
             if (source.contains(word)) {

@@ -17,8 +17,6 @@ public class DesviacionEstandar {
 
     public double mediaAritmetica;
 
-    public double desviacion;
-
     public void DesviacionEstandarAdd(List<Double> listaNumeros) {
 
         this.listasNumeros = listaNumeros;
@@ -34,14 +32,7 @@ public class DesviacionEstandar {
         return this.mediaAritmetica;
     }
 
-      Double DesviacionStandards(){
-
-
-     }
-     protected Double DesviacionStandardss(){
-
-
-     }
+    public double desviacion;
 
     public Double DesviacionStandard() {
         double sumatoria = 0;
@@ -54,7 +45,6 @@ public class DesviacionEstandar {
         calculos = Math.sqrt(sumatoria / (this.listasNumeros.size() - 1));
         this.desviacion = calculos;
         return this.desviacion;
-        
 
     }
 }
