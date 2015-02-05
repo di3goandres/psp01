@@ -30,12 +30,12 @@ public class App extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            ClassLOCCounter counter = new ClassLOCCounter("resource/Program_1/", false, true);
+            ClassLOCCounter counter = new ClassLOCCounter("resource/Program_1/", true, false);
             counter.process();
             resp.getWriter().println("Program 1");
             resp.getWriter().println(counter.getMessages());
 
-            ClassLOCCounter counterProgram2 = new ClassLOCCounter("resource/Program_2/", false, true);
+            ClassLOCCounter counterProgram2 = new ClassLOCCounter("resource/Program_2/", true, false);
             resp.getWriter().println("Program 2");
             counterProgram2.process();
             resp.getWriter().println(counterProgram2.getMessages());
