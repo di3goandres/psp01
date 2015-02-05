@@ -28,7 +28,7 @@ public class App extends HttpServlet {
 
     private void showHome(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.getWriter().println("Hello from Java!");
+      
         try {
             ClassLOCCounter counter = new ClassLOCCounter("resource/", true, true);
             counter.process();
